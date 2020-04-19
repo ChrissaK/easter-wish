@@ -1,0 +1,81 @@
+/* TYPOGRAPHY
+ * ------------------------------------------------ */
+
+
+ h1, h2, h3, h4, h5, h6 {
+	color: $heading-color;
+	line-height: 1.2;
+	margin-bottom: 3rem;
+	font: {
+		family: $heading-family;
+		weight: 500;
+	}
+}
+
+h1 {
+	font-size: 3.3rem;
+	line-height: 1.15;
+	letter-spacing: 0;
+	text-align: center;
+	margin-bottom: 4rem;
+	opacity: 0;
+	animation: fadein 2s ease-in forwards;
+	animation-delay: 4.5s;
+
+	@include respond-to(sm) {
+		font-size: 6.5rem;
+		line-height: 1.2;
+		letter-spacing: -0.2px;
+	}
+
+	strong {
+		font-weight: bold;
+		font-style: italic;
+	}
+}
+
+p {
+	font-size: $font-size;
+	line-height: 1.4;
+	letter-spacing: 0.48px;
+	margin: 0 0 2rem 0;
+
+	@include respond-to(sm) {
+		font-size: 1.8rem;
+		line-height: 1.5;
+		letter-spacing: 0.38px;
+	}
+
+	&.hint {
+		font-size: 1rem;
+		opacity: 0;
+		animation: fadein 2s ease-in forwards;
+		animation-delay: 1s;
+		font-style: italic;
+
+		@include respond-to(sm) {
+			font-size: 1.3rem;
+		}
+	}
+
+	img { margin: 0; }
+
+}
+
+em, i { font-style: italic; }
+strong, b { font-weight: bold; font-style: italic;}
+u { text-decoration: underline; }
+small { font-size: 80%; }
+/*	Blockquotes  */
+blockquote, blockquote p {
+	font-family: $heading-family;
+	font-weight: 500;
+	color: $brand-color;
+	font-size: 2.3rem;
+	line-height: 1.2;
+	text-align: center;
+
+	@include respond-to(md) {
+		font-size: 4.2rem;
+	}
+}

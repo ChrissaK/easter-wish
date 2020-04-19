@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){$(".egg").click(function(){$(this).removeClass("fill-0 fill-1 fill-2 fill-3 fill-4");var l=Math.round(4*Math.random());console.log(l);var i="fill-".concat(l);$(this).addClass(i)})});

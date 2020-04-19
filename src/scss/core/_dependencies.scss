@@ -1,0 +1,28 @@
+/// Calculates the relative units given absolute units.
+/// @param {string|number} $px - The unit in pixels.
+/// @param {number} $base - The base value to divide by.
+/// @param {string} $unit - `em`, `rem`, or `%` are valid **relative** values.
+/// @return {string} The new relative unit.
+/// @group core
+/// @access private
+@function _calcRU($px, $base, $unit) {
+	$unit: quote($unit);
+
+	@if not $unit == "em" or not $unit == "rem" or not $unit == "%" {
+		@return null;
+	}
+
+	@if not unitless($px) {
+		$px: strip-units($px);
+	}
+
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+
+	@if($unit == "%") {
+		@return percentage($px / $base);
+	}
+
+	@return #{($px / $base) * 1}#{$unit};
+}

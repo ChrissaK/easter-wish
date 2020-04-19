@@ -1,0 +1,75 @@
+.eggs {
+    opacity: 0;
+    animation: fadein 2s ease-in forwards;
+	animation-delay: 1s;
+
+    .egg {
+        width: 100px;
+        height: 150px;
+        margin: 1em auto;
+        background: rgb(212, 90, 76);
+        background-image: linear-gradient(red, rgb(223, 86, 71), rgb(199, 51, 34));
+        border-radius: 50%/60% 60% 40% 40%;
+        user-select: none;
+        overflow: hidden;
+        display: inline-block;
+        @include transition;
+
+        @include respond-to(sm) {
+            width: 140px;
+            height: 200px;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+            // cursor: url('../../img/flower.png'), auto;	
+        }
+
+        &:nth-of-type(1) {
+            transform: rotate(-15deg);
+            animation: egg-left-animation 2s ease-in 2s  alternate;
+
+            &:hover {
+                transform: scale(1.05) rotate(-15deg);
+                // transform: rotate(-20deg);
+            }
+        }
+
+        // &:nth-of-type(2) {
+        //     transform: rotate(-10deg);
+        // }
+
+        &:nth-of-type(3) {
+            transform: rotate(15deg);
+            animation: egg-right-animation 2s ease-in 2s  alternate;
+
+            &:hover {
+                transform: scale(1.05) rotate(15deg);
+                // transform: rotate(20deg);
+            }
+        }
+
+        &.fill-0 {
+            background-image: linear-gradient(red, rgb(223, 86, 71), rgb(199, 51, 34));
+        }
+
+        &.fill-1 {
+            background-image: linear-gradient(#ee6363, #ef7272, #f18282);
+            // background-image: linear-gradient(rgb(235, 248, 118), rgb(200, 223, 71), rgb(199, 196, 34));  
+        }
+
+        &.fill-2 {
+            background-image: linear-gradient(#f8c3db, #f8c9de, #f9cfe2);
+            // background-image: linear-gradient(rgb(235, 248, 118), rgb(200, 223, 71), rgb(199, 196, 34)); 
+        }
+
+        &.fill-3 {
+            background-image: linear-gradient(#ccf5f5, #b2f0f1, #99ebec);
+        }
+
+        &.fill-4 {
+            background-image: linear-gradient(#FFBDE8, #BDE8FF, #E8FFBD, #FFE8BD, #E8BDFF);
+        }
+      }
+}

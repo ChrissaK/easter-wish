@@ -1,0 +1,12 @@
+.flowers {
+    max-width: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-51%);
+
+
+    img {
+        animation: fadein 2s ease-in forwards;
+    }
+}

@@ -1,0 +1,177 @@
+////////////////////////////////
+///////// VARIABLES ///////////
+//////////////////////////////
+
+//// Colors
+
+// GENERAL
+
+/// Set true to use wildcard `border-box`
+/// @type bool
+/// @group core
+/// @access public
+$use-global-border-box: true !global; // use global border box?
+
+/// Set true to use `rem` units as the default relative unit
+/// @type bool
+/// @group core
+/// @access public
+$use-rem: true !global; // use rem as default unit?
+
+/// Set true to use `em` units as the default relative unit
+/// @type bool
+/// @group core
+/// @access public
+$use-em: false !global; // use em as default unit?
+
+/// Set true to use `%` units as the default relative unit
+/// @type bool
+/// @group core
+/// @access public
+$use-percent: false !global; // use percentage as default unit?
+
+/// Set true to use `px` fallback when legacy browsers don't properly support `rem` or `em` units.
+/// @type bool
+/// @group core
+/// @access public
+/// @deprecated
+$use-px-fallback: true !global; // allow for pixel fall back
+
+// FONTS
+
+/// Sets the global font-size as defined in `body`
+/// @type number
+/// @group core
+/// @access public
+$font-size: 14px !global;  // default font size. Change here will adjust sizes across the board.
+
+/// Sets the global font-family as defined in `body`
+/// @type list
+/// @group core
+/// @access public
+$font-family: "Charter BT", Arial, sans-serif !global; // default fonts
+
+/// @type list
+/// @group core
+/// @access public
+$font-alt: 'Almarai', serif;
+
+/// Sets the global heading families for `h1` through `h6`
+/// @type list
+/// @group core
+/// @access public
+$heading-family: 'Berkshire Swash', cursive !global; // default heading (h1-h6) font
+// $heading-family: "Spectral", Arial, sans-serif !global; // default heading (h1-h6) font
+
+/// Main brand color - Green
+/// @type color
+/// @group core
+/// @access public
+$brand-color: #1D5456 !global;  // default font color
+
+/// Main brand color - Green
+/// @type color
+/// @group core
+/// @access public
+$cream: #FCF9F6 !global;  // default font color
+
+/// Beige
+/// @type color
+/// @group core
+/// @access public
+$beige: #BB9D87 !global;  // default font color
+
+/// Dark Brown
+/// @type color
+/// @group core
+/// @access public
+$brown: #404040 !global;  // default font color
+
+/// The default background color as defined in `body`
+/// @type color
+/// @group core
+/// @access public
+$background-color: $cream !global; // default background color
+
+/// Sets the global font color as defined in `body`
+/// @type color
+/// @group core
+/// @access public
+$font-color: $brown !global;  // default font color
+
+/// Sets the global heading color for `h1` through `h6`
+/// @type color
+/// @group core
+/// @access public
+$heading-color: $brand-color !global; // default heading (h1-h6) color
+
+/// Sets the form font-family
+/// @type bool
+/// @group core
+/// @access public
+$form-font: $font-family !global; // default form font
+
+// LINKS
+
+/// Sets the global link color as defined in `a`
+/// @type color
+/// @group core
+/// @access public
+$link-color: $beige !global; // default link color
+
+/// Sets the global link hover color
+/// @type color
+/// @group core
+/// @access public
+$link-hover: $beige !global; // default link color on :hover
+
+/// Sets the global link decoration
+/// @type string
+/// @group core
+/// @access public
+$link-decoration: none !global; // default link decoration
+
+/// **Warning:** Excersize discretion when altering these values as they can cause undesired results.
+///
+/// Adjusts the base font size which is used to calculate _all_ relative units.
+/// @type number
+/// @group core
+/// @access public
+$base-font-size: 10px !global; // the font size in the html element so we can use ems and rems in a friendly way
+
+
+/// Spacing
+$spacing-sm: 30px;
+$spacing-md: 60px;
+$spacing-lg: 75px;
+$spacing-xl: 190px;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'sm': only screen and
+    (
+      min-width: 768px
+    ),
+  'md': only screen and
+    (
+      min-width: 1024px
+    ),
+  'lg': only screen and
+    (
+      min-width: 1280px
+    ),
+  'xl': only screen and
+    (
+      min-width: 1440px
+    ),
+  'xxl': only screen and
+    (
+      min-width: 1920px
+    )
+) !default;
+
+// ------ IMPORTS. DO NOT CHANGE
+@import "../../core/functions";
+@import "../../core/mixins";

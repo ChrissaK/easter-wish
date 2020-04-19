@@ -1,0 +1,37 @@
+/* BUTTONS
+ * ------------------------------------------------ */
+a.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	display: block;
+	border: 2px solid #4A4A4A;
+	max-width: 150px;
+	padding: 0.5rem;
+	font-size: 1.8rem;
+	line-height: 1;
+	text-align: center;
+	// margin: 2rem auto;
+	transition: all 0.4s ease-in-out;
+
+	&:hover {
+		background-color: #4a4a4a;
+		color: #fff;
+	}
+
+}
+
+/* Fix for odd Mozilla border & padding issues */
+button,
+input {
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+}
+
+:focus, textarea:focus {
+  outline: none;
+  border: none;
+}

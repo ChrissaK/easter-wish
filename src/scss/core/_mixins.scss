@@ -1,0 +1,279 @@
+
+/// Helper mixin to easily hide text.
+/// @group core
+/// @access public
+@mixin hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// ---- MIXINS ----
+
+/// Resets the box model.
+/// @group theme
+/// @access public
+@mixin reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/// Resets fonts.
+/// @group theme
+/// @access public
+@mixin reset-font {
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/// Wipes all focus outline styles.
+/// @group theme
+/// @access public
+@mixin reset-focus { outline: 0; }
+
+/// Resets line-height values.
+/// @group theme
+/// @access public
+@mixin reset-body { line-height: 1; }
+
+/// Wipes all list styles.
+/// @group theme
+/// @access public
+@mixin reset-list-style { list-style: none; }
+
+/// Resets image anchors.
+/// @group theme
+/// @access public
+@mixin reset-image-anchor-border { border: none; }
+
+/// Normalizes table styles.
+/// @group theme
+/// @access public
+@mixin reset-table {
+  border: {
+      collapse: collapse;
+      spacing: 0;
+  }
+}
+
+/// Resets table cell alignment and font-weights.
+/// @group theme
+/// @access public
+@mixin reset-table-cell {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/// Reset quotations.
+/// @group theme
+/// @access public
+@mixin reset-quotation {
+  quotes: none;
+  &:before, &:after {
+      content: "";
+      content: none;
+  }
+}
+
+/// Reset HTML5 elements (mainly for legacy browsers).
+/// @group theme
+/// @access public
+@mixin reset-html5 {
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section { display: block; }
+}
+
+/// Eric Meyer's global reset.
+/// @group theme
+/// @access public
+@mixin global-reset {
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+      @include reset-box-model;
+      @include reset-font;
+  }
+  @include reset-html5;
+  body { @include reset-body; }
+  ol, ul { @include reset-list-style; }
+  blockquote, q { @include reset-quotation; }
+  table {
+      @include reset-table;
+  }
+}
+
+/// Nested elements reset.
+/// @group theme
+/// @access public
+@mixin nested-reset {
+  div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+      @include reset-box-model;
+      @include reset-font;
+  }
+  ol, ul { @include reset-list-style; }
+  blockquote, q { @include reset-quotation; }
+  caption, th, td { @include reset-table-cell; }
+  table { @include reset-table; }
+  a img { @include reset-image-anchor-border; }
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+      content: "";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+#{$context} & {
+  @content;
+}
+}
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+// If the key exists in the map
+@if map-has-key($breakpoints, $breakpoint) {
+  // Prints a media query based on the value
+  @media #{inspect(map-get($breakpoints, $breakpoint))} {
+    @content;
+  }
+}
+
+// If the key doesn't exist in the map
+@else {
+  @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+  +"Available breakpoints are: #{map-keys($breakpoints)}.";
+}
+}
+
+@mixin transition($prop: all, $delay: 0s) {
+transition: $prop 0.4s $delay ease-in-out;
+}
+
+@mixin transition-med($prop: all, $delay: 0s) {
+transition: $prop 0.6s $delay ease-in-out;
+}
+
+@mixin transition-slow($prop: all, $delay: 0s) {
+transition: $prop 0.9s $delay ease-in-out;
+}
+
+@mixin object-fit-cover {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+font-family: 'object-fit: cover;';
+}
+
+@mixin margins-auto {
+margin-right: auto;
+margin-left : auto;
+}
+
+@mixin flex-center {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+@mixin sequenceDelay {
+&:nth-child(1) {
+  transition-delay: 50ms;
+}
+
+&:nth-child(2) {
+  transition-delay: 250ms;
+}
+
+&:nth-child(3) {
+  transition-delay: 450ms;
+}
+
+&:nth-child(4) {
+  transition-delay: 650ms;
+}
+
+&:nth-child(5) {
+  transition-delay: 850ms;
+}
+
+&:nth-child(6) {
+  transition-delay: 1050ms;
+}
+
+// &:nth-child(7) {
+//   transition-delay: 650ms;
+// }
+//
+// &:nth-child(8) {
+//   transition-delay: 750ms;
+// }
+//
+// &:nth-child(9) {
+//   transition-delay: 850ms;
+// }
+//
+// &:nth-child(10) {
+//   transition-delay: 950ms;
+// }
+//
+// &:nth-child(11) {
+//   transition-delay: 1050ms;
+// }
+//
+// &:nth-child(12) {
+//   transition-delay: 1150ms;
+// }
+//
+// &:nth-child(13) {
+//   transition-delay: 1250ms;
+// }
+//
+// &:nth-child(14) {
+//   transition-delay: 1350ms;
+// }
+//
+// &:nth-child(15) {
+//   transition-delay: 1450ms;
+// }
+}
