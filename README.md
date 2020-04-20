@@ -1,1 +1,1 @@
-# Static FE boilerplate
+# A playful Easter card
